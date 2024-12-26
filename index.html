@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>期末</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>期末</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2;
+      padding: 2;
+      background-color: #f8f4f1;
+    }
+    header {
+      background-color: #BEB7AD;
+      color: #5c5c5c;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    main {
+      margin: 20px auto;
+      max-width: 900px;
+      background: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h2, h3 {
+      margin-bottom: 10px;
+      color: #543f32;
+    }
+    h2{
+      line-height: 50px;
+
+    }
+    textarea, input {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #DBC4A4;
+      border-radius: 4px;
+      background-color: #ffffff;
+    }
+    button {
+      background-color: #C2BDB1;
+      color: #5c5c5c;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #bfa46f;
+    }
+    #list .news {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+      background: #DBD5C8;
+    }
+    iframe {
+      width: 80%;
+      height: 450px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #namoh {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+    }
+    #ico {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>zzhの小天地</h1>
+  </header>
+  <main>
+    <section id="list">
+      <h2>打氣板</h2>
+      <div class="news">
+        <h3>期末考全面All Pass!</h3>
+        <p>加油！</p>
+      </div>
+    </section>
+    <section>
+      <h2>圖片輪播</h2>
+      <div id="namoh">
+        <img id="ico" src="https://attach.setn.com/newsimages/2023/07/21/4248876-PH.jpg" alt="輪播圖片">
+      </div>
+    </section>
+    <section>
+      <h2>許願/打氣</h2>
+      <h3>標題</h3>
+      <input type="text" id="title">
+      <h3>內容</h3>
+      <textarea id="content"></textarea>
+      <button id="btn">送出</button>
+    </section>
+    <section>
+      <h2>影片欣賞</h2>
+      <iframe 
+        src="https://www.youtube.com/embed/ARHTI3G_sk4?si=e_xx1o-RBFOq31K3" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </section>
+  </main>
+  <script>
+    let i = 0;
+    const imgArr = [
+      "https://attach.setn.com/newsimages/2023/07/21/4248876-PH.jpg",
+      "https://media.zenfs.com/ko/setn.com.tw/a1e008dc6873152b220101e888cb83f8",
+      "https://imgs.tsna.com/article/1713693968_4iWZQ.jpg"
+    ];
+
+    function showImg() {
+      const ico = document.getElementById('ico');
+      ico.src = imgArr[i];
+      i = (i + 1) % imgArr.length;
+    }
+    setInterval(showImg, 3000);
+
+    let title = document.getElementById("title");
+    let content = document.getElementById("content");
+    let btn = document.getElementById("btn");
+    let list = document.getElementById("list");
+
+    btn.addEventListener("click", () => {
+      const titleValue = title.value.trim();
+      const contentValue = content.value.trim();
+
+      if (titleValue && contentValue) {
+        const newItem = document.createElement("div");
+        newItem.className = "news";
+        newItem.innerHTML = `
+          <h3>${titleValue}</h3>
+          <p>${contentValue}</p>
+        `;
+        list.appendChild(newItem);
+        title.value = "";
+        content.value = "";
+      } else {
+        alert("請填寫標題和內容！");
+      }
+    });
+  </script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
