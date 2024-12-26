@@ -1,0 +1,28 @@
+#namoh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; 
+}
+
+#btn {
+  margin-top: 2px;
+}
+
+
+section:nth-of-type(3) {
+  margin-top: 40px; 
+}
+
+#ico{
+  width:300px;
+}
+body {
+  background-color: #cbb994;
+}
+h2,h3{
+  color: #474b42
+}
+input, textarea {
+  background-color: #cbb994;
+}
